@@ -23,7 +23,11 @@
 # Note: python does not have a ++ operator, but += works.
 def match_ends(words):
     # +++your code here+++
-    return
+    matching_ends_count = 0
+    for word in words:
+        if len(word) >= 2 and word[0] == word[-1]:
+            matching_ends_count += 1
+    return matching_ends_count
 
 
 # B. front_x
@@ -35,7 +39,29 @@ def match_ends(words):
 # before combining them.
 def front_x(words):
     # +++your code here+++
-    return
+    x_list = []
+    no_x_list = []
+    for word in words:
+        if word[0] == "x":
+            x_list.append(word)
+        else:
+            no_x_list.append(word)
+    x_list.sort()
+    no_x_list.sort()
+    return x_list + no_x_list
+
+
+    # Leaving this here to discuss tomorrow. Confused about why this is not working.
+    # x_list = []
+    # for word in words:
+    #     if word[0] == "x":
+    #         x_list.append(word)
+    #         words.remove(word)   
+    # print(x_list,words)
+    # x_list.sort()
+    # words.sort()
+    # weirdly_sorted_list = x_list.extend(words)
+    # return weirdly_sorted_list
 
 
 # C. sort_last
@@ -46,7 +72,7 @@ def front_x(words):
 # Hint: use a custom key= function to extract the last element form each tuple.
 def sort_last(tuples):
     # +++your code here+++
-    return
+    return sorted(tuples, key=lambda t: t[len(t)-1])
 
 
 # Simple provided test() function used in main() to print
@@ -56,7 +82,7 @@ def test(got, expected):
         prefix = ' OK '
     else:
         prefix = '  X '
-    print('%s got: %s expected: %s'.format(prefix, repr(got), repr(expected)))
+    print('{} got: {} expected: {}'.format(prefix, repr(got), repr(expected)))
 
 
 # Calls the above functions with interesting inputs.

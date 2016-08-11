@@ -6,3 +6,19 @@
 # In your final submission:
 #  - Do not print anything extraneous!
 #  - Do not put anything but pass in main()
+
+
+def cumulative_sum(integer_list):
+    sum_so_far = 0
+    cumulative_sum_list =[]
+    for item in integer_list:
+        sum_so_far += item
+        cumulative_sum_list.append(sum_so_far)
+    return cumulative_sum_list
+
+def main():
+    pass
+
+    
+if __name__ == "__main__":
+    main()
